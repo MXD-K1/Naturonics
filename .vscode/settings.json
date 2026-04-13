@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": false,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "eslint.format.enable": true,
+  "editor.fontSize": 24,
+  "files.autoSave": "afterDelay"
+}
