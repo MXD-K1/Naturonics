@@ -1,6 +1,5 @@
 import { colorizeBG } from "../utils/utils.js";
 import { createHero, moveHero } from "../entities/hero.js";
-import { gameState } from "../managers/managers.js";
 import { globalInput } from "../utils/input.js";
 
 export default function createWorld(k) {
