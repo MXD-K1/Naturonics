@@ -10,9 +10,10 @@
     "deploy": "wavedash build push"
   },
   "devDependencies": {
-    "vite": "^8.0.4"
+    "prettier": "==3.8.2",
+    "vite": "==8.0.4"
   },
   "dependencies": {
-    "kaplay": "^3001.0.19"
+    "kaplay": "==3001.0.19"
   }
 }
