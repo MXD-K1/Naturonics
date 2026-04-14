@@ -1,14 +1,14 @@
 # TODO
-- [ ] Milestone 0: Decide game concept and tone (one-pager pitch).
-- [ ] Milestone 0: Define target resolution and aspect ratio.
+- [x] Milestone 0: Decide game concept and tone (one-pager pitch).
+- [x] Milestone 0: Define target resolution and aspect ratio.
 - [ ] Milestone 0: Choose art style + color palette reference.
-- [ ] Milestone 1: Add basic scene flow (boot -> menu -> game).
+- [ ] Milestone 1: Add basic scene flow.
 - [ ] Milestone 1: Add input prompts and a start button.
 - [ ] Milestone 1: Create a minimal UI system (title, buttons, overlays).
 - [ ] Milestone 1: Add a placeholder soundtrack and SFX stubs.
 - [ ] Milestone 2: Implement the core mechanic prototype.
-- [ ] Milestone 2: Add win/lose conditions and simple progression.
-- [ ] Milestone 2: Create level data format in `src/levels/`.
+- [ ] Milestone 2: Add simple progression in the game.
+- [ ] Milestone 2: Create level data format in `assets/maps/`.
 - [ ] Milestone 3: Add polish pass (camera, screen shake, juice).
 - [ ] Milestone 3: Add accessibility toggles (volume, screen effects).
 - [ ] Milestone 3: Add build/deploy checklist.

@@ -1,5 +1,4 @@
-import { speedFactor } from "../utils/utils.js";
-import { createPlayer } from "./player.js";
+import { speedFactor } from "../utils/constants.js";
 
 export function createEntity(k, pos) {
     return [

@@ -7,4 +7,6 @@ export const SCENES = {
 export const screenWidth = 1280;
 export const screenHeight = 720;
 
+export const speedFactor = 150;
+
 // TODO: Add other shared constants (colors, layers, z-index, speeds).

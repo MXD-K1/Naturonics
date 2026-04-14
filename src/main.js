@@ -10,6 +10,12 @@ import { SCENES } from "./utils/constants.js";
 // TODO: Add global input bindings (pause, mute, screenshot, etc.).
 // TODO: Add a global UI layer for FPS, version, or debug info.
 
+function loadAssets() {
+    // Sprites
+    // Sounds (SFX)
+    // Fonts
+}
+
 function run(k) {
     console.log(SCENES);
     for (const scene in SCENES) {
