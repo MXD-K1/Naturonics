@@ -31,7 +31,7 @@ This project was created as an entry for the **GameDev.js Jam 2026**.
 
 > *[Game description]*
 
-- **Genre: A TopDown 2D RPG Game (Zelda-Like)
+- **Genre**: A TopDown 2D RPG Game (Zelda-Like)
 
 ---
 
@@ -55,7 +55,8 @@ This project was created as an entry for the **GameDev.js Jam 2026**.
 ## Tech Stack
 
 - **Language:** JavaScript
-- **Engine / Framework:** Kaplay
+- **Framework:** Vanilla JS
+- **Game Engine / Game Framework:** Kaplay
 - **Runtime:** Node.js
 - **Bundler:** Vite
 - **Level Design:** Tiled
@@ -66,9 +67,11 @@ This project was created as an entry for the **GameDev.js Jam 2026**.
 
 ## Play the Game
 
-- **On (Wavedash):** *[link]*
+- **On Wavedash (Primary):** *[link]*
 - **On itch.io:** *[link]*
 - **On GitHub Pages:** *[link]*
+
+> Note: To get all features, it is recommended to play the game from wavedash
 
 ---
 
@@ -110,22 +113,9 @@ npx serve .
 
 ---
 
-## Project Structure
-
-```
-/src
-  /assets
-  /scenes
-  main.js
-/index.html
-/package.json
-Note: # to be edited
-```
-
----
-
 ## Known Issues
 
+See [BUGS.md](docs/BUGS.md)
 
 ---
 
@@ -137,7 +127,7 @@ See [TODO.md](docs/TODO.md).
 
 ## Team Members
 
--
+- Mohammed Al-Shguaa (MXD-K1)
 -
 -
 
@@ -147,6 +137,7 @@ See [TODO.md](docs/TODO.md).
 
 Contributions are welcome!
 
+**Guidelines**:
 1. Fork the repository
 2. Create a new branch (`feature/your-feature`)
 3. Commit your changes
@@ -157,7 +148,7 @@ Contributions are welcome!
 ## License
 
 Project: Web Game Jam 2026 Project
-Copyright (C) 2026 Web Game Jam 2026 Team
+Copyright © 2026 Web Game Jam 2026 Team
 
 This project is licensed under the GNU GPL version 2.
 see [License](LICENSE) for more.
