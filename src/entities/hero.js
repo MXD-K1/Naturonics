@@ -1,4 +1,5 @@
 import { createEntity } from "./entity.js";
+import { gameState } from "../managers/managers.js";
 
 export function createHero(k, pos) {
     return [
@@ -13,6 +14,8 @@ export function createHero(k, pos) {
 
 export function moveHero(k, hero) {
     hero.onKeyDown((key) => {
+        if (gameState.getFreezePlayer()) return;
+
         const moveVec = k.vec2(0, 0);
         if (key === "left" || key === "a") moveVec.x = -hero.speed;
         if (key === "right" || key === "d") moveVec.x = hero.speed;

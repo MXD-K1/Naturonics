@@ -41,14 +41,14 @@ This project was created as an entry for the **GameDev.js Jam 2026**.
 
 ## Controls (Keybindings)
 
-| Key     | Action       |
-|---------|--------------|
-| `W / ↑` | Move Up      |
-| `A / ←` | Move Left    |
-| `D / →` | Move Right   |
-| `S / ↓` | Move Down    |
-| `Space` | Attack       |
-| `p`     | Pause / Menu |
+| Key     | Action     |
+|---------|------------|
+| `W / ↑` | Move Up    |
+| `A / ←` | Move Left  |
+| `D / →` | Move Right |
+| `S / ↓` | Move Down  |
+| `Space` | Attack     |
+| `p`     | Pause      |
 
 ---
 

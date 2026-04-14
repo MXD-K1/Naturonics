@@ -1,5 +1,6 @@
 import k from "./kaplayContext.js";
 import { SCENES } from "./utils/constants.js";
+import { globalInput } from "./utils/input.js";
 
 // TODO: Rename the project title and update `index.html` <title>.
 // TODO: Decide on a fixed resolution vs responsive scaling strategy.
@@ -17,7 +18,6 @@ function loadAssets() {
 }
 
 function run(k) {
-    console.log(SCENES);
     for (const scene in SCENES) {
         k.scene(scene, () => SCENES[scene](k));
     }

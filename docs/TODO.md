@@ -1,7 +1,7 @@
 # TODO
-- [x] Milestone 0: Decide game concept and tone (one-pager pitch).
-- [x] Milestone 0: Define target resolution and aspect ratio.
-- [ ] Milestone 0: Choose art style + color palette reference.
+- [x] Milestone 0: Decide game concept and tone.
+- [x] Milestone 0: Define target resolution and aspect ratio. (6:9)
+- [ ] Milestone 0: Decide a responsive scaling strategy.
 - [ ] Milestone 1: Add basic scene flow.
 - [ ] Milestone 1: Add input prompts and a start button.
 - [ ] Milestone 1: Create a minimal UI system (title, buttons, overlays).
@@ -29,5 +29,6 @@
 - [ ] Add music and SFX.
 - [ ] Toggle hitboxes, physics, or FPS overlays in debug shortcuts.
 - [ ] Add a hot-reload-safe debug UI.
-- [ ] Bind pause, mute, and fullscreen keys.
+- [ ] Bind pause, and fullscreen keys.
 - [ ] Add gamepad mappings.
+- [ ] Fix player movement.
