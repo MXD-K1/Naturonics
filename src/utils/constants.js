@@ -1,6 +1,8 @@
 import createWorld from "../scenes/world.js";
+import loadScene from "../scenes/load.js";
 
 export const SCENES = {
+    load: loadScene,
     world: createWorld,
 };
 
@@ -15,6 +17,12 @@ export const LOCALES = Object.freeze({
     AR: "ar",
     EN: "en",
     ES: "es",
+});
+
+export const COLORS = Object.freeze({
+    WHITE: [255, 255, 255],
+    BLACK: [0, 0, 0],
+    BLUE: [41, 41, 255],
 });
 
 // TODO: Add other shared constants (colors, layers, z-index, speeds).
