@@ -59,9 +59,10 @@ This project was created as an entry for the **GameDev.js Jam 2026**.
 - **Game Engine / Game Framework:** Kaplay
 - **Runtime:** Node.js
 - **Bundler:** Vite
+- **Code Editor / IDE:** VSCode + WebStorm
 - **Level Design:** Tiled
 - **Art:** Aesprite
-- **Sounds:** ...
+- **Sounds:** DAW
 
 ---
 
@@ -79,7 +80,7 @@ This project was created as an entry for the **GameDev.js Jam 2026**.
 
 ```bash
 # Clone the repository
-git clone <our-repo-url>
+git clone "https://github.com/MXD-K1/<our-repo-url>"
 
 # Navigate into the project
 cd <project-folder>

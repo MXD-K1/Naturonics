@@ -19,3 +19,5 @@ export function formatText(text, lang) {
         return text;
     }
 }
+
+export function getDialogText(npc, lang, event) {}

@@ -9,5 +9,6 @@ export default function createWorld(k) {
     const hero = k.add(createHero(k, k.vec2(320, 170)));
     moveHero(k, hero);
 
-    k.setCamScale(2);
+    k.setCamPos(hero.worldPos());
+    k.setCamScale(1.5);
 }

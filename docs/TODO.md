@@ -1,6 +1,6 @@
 # TODO
 - [x] Milestone 0: Decide game concept and tone.
-- [x] Milestone 0: Define target resolution and aspect ratio. (6:9)
+- [x] Milestone 0: Define target resolution and aspect ratio. (16:9)
 - [ ] Milestone 0: Decide a responsive scaling strategy.
 - [ ] Milestone 1: Add basic scene flow.
 - [ ] Milestone 1: Add input prompts and a start button.
