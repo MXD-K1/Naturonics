@@ -3,4 +3,4 @@ upload_dir = "."
 
 [custom]
 version = "1.0.0"
-entrypoint = "index.js"
+entrypoint = "index.html"
