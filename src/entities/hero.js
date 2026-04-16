@@ -6,7 +6,7 @@ export function createHero(k, pos) {
     return [
         ...createEntity(k, pos),
         k.sprite("player", { anim: "player.down.move" }),
-        k.area({ shape: new k.Rect(k.vec2(8, 40), 16, 16) }),
+        k.area({ shape: new k.Rect(k.vec2(-8, -8), 16, 16) }),
         // k.health(),
         "player",
         {

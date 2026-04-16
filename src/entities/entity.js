@@ -1,13 +1,13 @@
 import { speedFactor } from "../utils/constants.js";
 
-export function createEntity(k, pos) {
+export function createEntity(k, pos, opts={}) {
     return [
         k.pos(pos),
         k.area(),
         k.body(),
         k.opacity(),
         {
-            speed: 25 * speedFactor,
+            speed: opts.speed || 25 * speedFactor,
         },
     ];
 }
