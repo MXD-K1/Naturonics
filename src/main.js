@@ -20,6 +20,11 @@ async function loadAssets(k) {
             "player.down.move": { from: 7, to: 13, loop: true },
             "player.right.move": { from: 14, to: 20, loop: true },
             "player.up.move": { from: 21, to: 27, loop: true },
+
+            "player.left.idle": { from: 0, to: 0, loop: false },
+            "player.down.idle": { from: 7, to: 7, loop: true },
+            "player.right.idle": { from: 14, to: 14, loop: true },
+            "player.up.idle": { from: 21, to: 21, loop: true },
         },
     });
 
