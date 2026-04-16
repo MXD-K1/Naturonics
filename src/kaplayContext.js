@@ -4,6 +4,7 @@ import { screenWidth, screenHeight } from "./utils/constants.js";
 const k = kaplay({
     width: screenWidth,
     height: screenHeight,
+    maxFPS: 60,
     letterbox: true,
     global: false,
     debug: true,

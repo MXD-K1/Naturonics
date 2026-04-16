@@ -33,3 +33,4 @@
 - [ ] Add gamepad mappings. (partial)
 - [ ] Add proper key mapping
 - [ ] Wrap quests that exceeds the panel height
+- [ ] Fix Arabic alignment problem

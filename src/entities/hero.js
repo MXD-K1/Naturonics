@@ -10,6 +10,7 @@ export function createHero(k, pos) {
         // k.health(),
         "player",
         {
+            damage: 2,
             direction: "down",
         },
     ];
@@ -17,49 +18,47 @@ export function createHero(k, pos) {
 
 export function moveHero(k, hero) {
     hero.onUpdate(() => {
-    if (gameState.getFreezePlayer()) return;
+        if (gameState.getFreezePlayer()) return;
 
-    const moveVec = k.vec2(0, 0);
+        const moveVec = k.vec2(0, 0);
 
-    const left = k.isKeyDown("left") || k.isKeyDown("a");
-    const right = k.isKeyDown("right") || k.isKeyDown("d");
-    const down = k.isKeyDown("down") || k.isKeyDown("s");
-    const up = k.isKeyDown("up") || k.isKeyDown("w");
+        const left = k.isKeyDown("left") || k.isKeyDown("a");
+        const right = k.isKeyDown("right") || k.isKeyDown("d");
+        const down = k.isKeyDown("down") || k.isKeyDown("s");
+        const up = k.isKeyDown("up") || k.isKeyDown("w");
 
-    let dir = hero.direction;
+        let dir = hero.direction;
 
-    if (left) {
-      moveVec.x -= 1;
-      dir = "left";
-    }
-    if (right) {
-      moveVec.x += 1;
-      dir = "right";
-    }
-    if (down) {
-      moveVec.y += 1;
-      dir = "down";
-    }
-    if (up) {
-      moveVec.y -= 1;
-      dir = "up";
-    }
-    if (down && left) dir = "down.left";
-    if (down && right) dir = "down.right";
+        if (left) {
+            moveVec.x -= 1;
+            dir = "left";
+        }
+        if (right) {
+            moveVec.x += 1;
+            dir = "right";
+        }
+        if (down) {
+            moveVec.y += 1;
+            dir = "down";
+        }
+        if (up) {
+            moveVec.y -= 1;
+            dir = "up";
+        }
+        if (down && left) dir = "down.left";
+        if (down && right) dir = "down.right";
 
-    hero.direction = dir;
+        hero.direction = dir;
 
-    const len = moveVec.len();
-    if (len > 0) {
-        // Normalize vector so that diagonal movement isn't faster
-        moveVec.x = (moveVec.x / len) * hero.speed;
-        moveVec.y = (moveVec.y / len) * hero.speed;
-        hero.move(moveVec.x * k.dt(), moveVec.y * k.dt());
-        playAnimIfNotPlaying(hero, `player.${hero.direction}.move`);
-    } else {
-      playAnimIfNotPlaying(hero, `player.${hero.direction}.idle`);
-    }
-  });
-} 
-
-
+        const len = moveVec.len();
+        if (len > 0) {
+            // Normalize vector so that diagonal movement isn't faster
+            moveVec.x = (moveVec.x / len) * hero.speed;
+            moveVec.y = (moveVec.y / len) * hero.speed;
+            hero.move(moveVec.x * k.dt(), moveVec.y * k.dt());
+            playAnimIfNotPlaying(hero, `player.${hero.direction}.move`);
+        } else {
+            playAnimIfNotPlaying(hero, `player.${hero.direction}.idle`);
+        }
+    });
+}
