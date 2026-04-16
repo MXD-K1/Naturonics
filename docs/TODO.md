@@ -12,14 +12,14 @@
 - [ ] Milestone 3: Add polish pass (camera, screen shake, juice).
 - [ ] Milestone 3: Add accessibility toggles (volume, screen effects).
 - [ ] Milestone 3: Add build/deploy checklist.
-- [ ] Rename the project title and update `index.html` <title>.
-- [ ] Decide on a fixed resolution vs responsive scaling strategy.
+- [x] Rename the project title and update `index.html` <title>.
+- [ ] Decide on a fixed resolution vs responsive scaling strategy. (partial)
 - [ ] Configure gravity once platforming or physics are added.
 - [ ] Add a real asset loading pipeline (sprites, fonts, audio).
-- [ ] Add global input bindings (pause, mute, screenshot, etc.).
+- [ ] Add global input bindings (pause, mute, screenshot, etc.). (partial)
 - [ ] Add a global UI layer for FPS, version, or debug info.
-- [ ] Load real assets in the boot scene with `k.loadSprite` / `k.loadSound`.
-- [ ] Add a loading bar and transition animation in the boot scene.
+- [ ] Load real assets in the boot scene with `k.loadSprite` / `k.loadSound`. (partial)
+- [ ] Add a loading bar and transition animation in the boot scene. (partial)
 - [ ] Replace the instant scene jump with actual asset tracking.
 - [ ] Establish game layers (background, world, UI).
 - [ ] Add a parallax or gradient background.

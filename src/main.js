@@ -12,16 +12,16 @@ import { SCENES } from "./utils/constants.js";
 
 async function loadAssets(k) {
     // Sprites
-    k.loadSprite("player", "./assets/sprites/playerV2.png", {
+    k.loadSprite("player", "./assets/sprites/player.png", {
         sliceX: 7,
         sliceY: 9,
         anims: {
-            "player.left.idle": { from: 0, to: 0, loop: false },
-            "player.up.idle": { from: 1, to: 1, loop: false },
-            "player.down.idle": { from: 2, to: 2, loop: false },
-            "player.right.idle": { from: 3, to: 3, loop: false },
-            "player.down.left.idle": { from: 0, to: 0, loop: false },
-            "player.down.right.idle": { from: 3, to: 3, loop: false },
+            "player.left.idle": 0,
+            "player.up.idle": 1,
+            "player.down.idle": 2,
+            "player.right.idle": 3,
+            "player.down.left.idle": 0,
+            "player.down.right.idle": 3,
 
             "player.left.move": { from: 7, to: 13, loop: true },
             "player.down.move": { from: 14, to: 20, loop: true },
@@ -33,8 +33,6 @@ async function loadAssets(k) {
 
             "player.down.left.move": { from: 49, to: 55, loop: true },
             "player.down.right.move": { from: 56, to: 62, loop: true },
-
-            
         },
     });
 

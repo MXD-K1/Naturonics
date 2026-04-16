@@ -1,6 +1,7 @@
-# Template
+# Naturonics
 
 > A game made for **GameDev.js Jam 2026**
+> See [About the Project Section](#about-the-project)
 
 ---
 
@@ -29,7 +30,7 @@ This project was created as an entry for the **GameDev.js Jam 2026**.
 
 **What is this game?**
 
-> *[Game description]*
+> A game about the war between two groups, nature lovers and machine scientists...
 
 - **Genre**: A TopDown 2D RPG Game (Zelda-Like)
 
@@ -68,9 +69,8 @@ This project was created as an entry for the **GameDev.js Jam 2026**.
 
 ## Play the Game
 
-- **On Wavedash (Primary):** *[link]*
-- **On itch.io:** *[link]*
-- **On GitHub Pages:** *[link]*
+- **On Wavedash (Primary):** [Go](https://wavedash.com/games/naturonics)
+- **On itch.io:** [Go](https://mxd-k1.itch.io/naturonics)
 
 > Note: To get all features, it is recommended to play the game from wavedash
 
@@ -80,15 +80,15 @@ This project was created as an entry for the **GameDev.js Jam 2026**.
 
 ```bash
 # Clone the repository
-git clone "https://github.com/MXD-K1/<our-repo-url>"
+git clone "https://github.com/MXD-K1/Naturonics"
 
 # Navigate into the project
-cd <project-folder>
+cd Naturonics
 
 # Install dependencies
 npm install
 
-# Run development server
+# Run local development server
 npm run dev
 ```
 
@@ -99,20 +99,7 @@ http://localhost:5173/
 ---
 
 ## Deployment
-### GitHub Pages
-
-```bash
-npm run build
-# deploy the build folder
-```
-
-### Simple Static Server
-
-```bash
-npx serve .
-```
-
----
+> Details are to be added
 
 ## Known Issues
 
