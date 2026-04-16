@@ -20,4 +20,4 @@ export function formatText(text, lang) {
     }
 }
 
-export function getDialogText(npc, lang, event) {}
+export function getDialogText(npc, event) {}

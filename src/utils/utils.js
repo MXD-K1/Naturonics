@@ -13,11 +13,12 @@ export function playAnimIfNotPlaying(gameObj, animName) {
     if (gameObj.curAnim() !== animName) gameObj.play(animName);
 }
 
-export async function fetchMapData(mapPath) {
+export async function fetchData(mapPath) {
     return await (await fetch(mapPath)).json();
-}
+} // also works for map data
 
 export function drawTiles(k, map, layer, tileHeight, tileWidth) {
+    // This function will be used in drawing maps
     let nbOfDrawnTiles = 0;
     const tilePos = k.vec2();
     for (const tile of layer.data) {
@@ -31,8 +32,7 @@ export function drawTiles(k, map, layer, tileHeight, tileWidth) {
         nbOfDrawnTiles++;
         if (tile === 0) continue;
 
-        // TODO: Add draw logic here
-
+        // Rendering happens here.
         map.add([
             k.sprite("assets", { frame: tile - 1 }), // kaplay starts from 0 while tiled start from 1
             k.pos(tilePos),
