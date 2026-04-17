@@ -14,7 +14,7 @@ async function loadAssets(k) {
     // Sprites
     k.loadSprite("assets", "assets/sprites/terrain/terrain.png", {
         sliceX: 32,
-        sliceY: 33,
+        sliceY: 32,
     });
 
     k.loadSprite("player", "assets/sprites/player.png", {
@@ -44,6 +44,7 @@ async function loadAssets(k) {
 
     // Sounds (SFX)
     // Fonts
+    // k.loadFont("jungle", "assets/fonts/font.png", 10, 10);
     // Dialog Data
     [dialogData.AR, dialogData.EN, dialogData.ES] = await Promise.all([
         fetchData("data/dialogs-ar.json"),
