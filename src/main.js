@@ -12,6 +12,11 @@ import { fetchData } from "./utils/utils.js";
 
 async function loadAssets(k) {
     // Sprites
+    k.loadSprite("assets", "./assets/sprites/terrain/terrain.png", {
+        sliceX: 32,
+        sliceY: 33,
+    });
+
     k.loadSprite("player", "./assets/sprites/player.png", {
         sliceX: 7,
         sliceY: 9,
