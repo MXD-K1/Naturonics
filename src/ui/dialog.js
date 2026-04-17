@@ -6,7 +6,7 @@ import {
     dialogData,
 } from "../utils/constants.js";
 import { formatText } from "../utils/text.js";
-import { gameState } from "../managers/managers.js";
+import { gameState } from "../managers/stateManagers.js";
 
 export function createDialogBox(k) {
     return k.add([

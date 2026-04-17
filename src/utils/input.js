@@ -1,4 +1,4 @@
-import { gameState } from "../managers/managers.js";
+import { gameState } from "../managers/stateManagers.js";
 
 export function globalInput(k) {
     // TODO: Bind pause, and fullscreen keys.

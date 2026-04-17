@@ -7,7 +7,7 @@ export function createEntity(k, pos, opts={}) {
         k.body(),
         k.opacity(),
         {
-            speed: opts.speed || 25 * speedFactor,
+            speed: opts.speed || 10 * speedFactor,
         },
     ];
 }
