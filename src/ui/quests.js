@@ -5,7 +5,7 @@ import {
     screenWidth,
 } from "../utils/constants.js";
 import { formatText } from "../utils/text.js";
-import { gameState } from "../managers/managers.js";
+import { gameState } from "../managers/stateManagers.js";
 
 let curQuestNb = 1;
 const quests = [];
