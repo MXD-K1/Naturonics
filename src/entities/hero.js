@@ -1,5 +1,5 @@
 import { createEntity } from "./entity.js";
-import { gameState } from "../managers/managers.js";
+import { gameState } from "../managers/stateManagers.js";
 import { playAnimIfNotPlaying } from "../utils/utils.js";
 
 export function createHero(k, pos) {
@@ -16,7 +16,7 @@ export function createHero(k, pos) {
 }
 
 export function moveHero(k, hero) {
-    const margin = 32; 
+    const margin = 32;
     const minX = margin;
     const minY = margin;
     const maxX = k.width() - margin - hero.width;
