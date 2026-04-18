@@ -7,6 +7,7 @@ import {
 } from "../utils/constants.js";
 import { formatText } from "../utils/text.js";
 import { gameState } from "../managers/stateManagers.js";
+import { getFont } from "../utils/font.js";
 
 export function createDialogBox(k) {
     return k.add([
@@ -25,7 +26,7 @@ export function addText(k, text, dialogBox) {
         pos.x += dialogBox.width - dialogBox.pos.x - textObj.width + 50;
     }
     dialogBox.add([
-        k.text(formatText(text, locale)),
+        k.text(formatText(text, locale), getFont("dialog")),
         k.color(...COLORS.BLACK),
         k.pos(pos),
         k.fixed(),
