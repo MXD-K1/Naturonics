@@ -11,5 +11,5 @@ export default function titleScene(k) {
     ]);
 
     createButton(k, "Start Game", k.height() / 2, () => k.go("world"));
-    createButton(k, "Options", k.height() / 2 + 80, () => k.go("load"));
+    createButton(k, "Options", k.height() / 2 + 80, () => k.go("option"));
 }

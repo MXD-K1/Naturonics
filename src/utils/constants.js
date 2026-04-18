@@ -1,11 +1,13 @@
 import createWorld from "../scenes/world.js";
 import loadScene from "../scenes/load.js";
 import titleScene from "../scenes/title.js";
+import optionsScene from "../scenes/option.js";
 
 export const SCENES = {
     title: titleScene,
     load: loadScene,
     world: createWorld,
+    option: optionsScene,
 };
 
 export const screenWidth = 1280;

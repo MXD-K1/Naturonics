@@ -16,12 +16,6 @@ export function createHero(k, pos) {
 }
 
 export function moveHero(k, hero) {
-    const margin = 32;
-    const minX = margin;
-    const minY = margin;
-    const maxX = k.width() - margin - hero.width;
-    const maxY = k.height() - margin - hero.height;
-
     hero.onUpdate(() => {
         if (gameState.getFreezePlayer()) return;
 
@@ -69,8 +63,5 @@ export function moveHero(k, hero) {
         } else {
             playAnimIfNotPlaying(hero, `hero.${hero.direction}.idle`);
         }
-
-        hero.pos.x = Math.max(minX, Math.min(hero.pos.x, maxX));
-        hero.pos.y = Math.max(minY, Math.min(hero.pos.y, maxY));
     });
 }
