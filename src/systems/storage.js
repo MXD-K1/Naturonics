@@ -37,6 +37,7 @@ export function storageSystem() {
             },
             // TODO: modify the existing functions to add to the old value
             //  without reassigning the whole entry.
+            // TODO: add clear function
         };
     }
 
