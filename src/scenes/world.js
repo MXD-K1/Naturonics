@@ -1,7 +1,13 @@
 import { colorizeBG, drawTiles, fetchData } from "../utils/utils.js";
 import { createHero, moveHero } from "../entities/hero.js";
 import { globalInput } from "../utils/input.js";
-import { COLORS, screenWidth, screenHeight, tileHeight, tileWidth } from "../utils/constants.js";
+import {
+    COLORS,
+    screenWidth,
+    screenHeight,
+    tileHeight,
+    tileWidth,
+} from "../utils/constants.js";
 
 export default async function createWorld(k) {
     colorizeBG(k, ...COLORS.BLACK);
@@ -17,10 +23,9 @@ export default async function createWorld(k) {
     const hero = k.add(createHero(k, k.vec2(320, 170)));
     moveHero(k, hero);
     worldCamera(k, hero);
-
 }
 
-function worldCamera(k, person){
+function worldCamera(k, person) {
     const camScale = 1.5;
     k.setCamScale(camScale);
 
@@ -31,10 +36,15 @@ function worldCamera(k, person){
         let camX = person.worldPos().x;
         let camY = person.worldPos().y;
 
-        camX = Math.max(visibleWidth / 2, Math.min(camX, screenWidth - visibleWidth / 2));
-        camY = Math.max(visibleHeight / 2, Math.min(camY, screenHeight - visibleHeight / 2));
+        camX = Math.max(
+            visibleWidth / 2,
+            Math.min(camX, screenWidth - visibleWidth / 2),
+        );
+        camY = Math.max(
+            visibleHeight / 2,
+            Math.min(camY, screenHeight - visibleHeight / 2),
+        );
 
         k.setCamPos(camX, camY);
     });
 }
-

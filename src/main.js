@@ -17,28 +17,28 @@ async function loadAssets(k) {
         sliceY: 33,
     });
 
-    k.loadSprite("player", "assets/sprites/player.png", {
+    k.loadSprite("hero", "assets/sprites/player.png", {
         sliceX: 7,
         sliceY: 9,
         anims: {
-            "player.left.idle": 0,
-            "player.right.idle": 1,
-            "player.up.idle": 2,
-            "player.down.idle": 3,
-            "player.down.left.idle": 0,
-            "player.down.right.idle": 1,
-            "player.up.left.idle": 0,
-            "player.up.right.idle": 1,
+            "hero.left.idle": 0,
+            "hero.right.idle": 1,
+            "hero.up.idle": 2,
+            "hero.down.idle": 3,
+            "hero.down.left.idle": 0,
+            "hero.down.right.idle": 1,
+            "hero.up.left.idle": 0,
+            "hero.up.right.idle": 1,
 
-            "player.left.move": { from: 7, to: 13, loop: true },
-            "player.down.move": { from: 14, to: 20, loop: true },
-            "player.right.move": { from: 21, to: 27, loop: true },
-            "player.up.move": { from: 28, to: 34, loop: true },
+            "hero.left.move": { from: 7, to: 13, loop: true },
+            "hero.down.move": { from: 14, to: 20, loop: true },
+            "hero.right.move": { from: 21, to: 27, loop: true },
+            "hero.up.move": { from: 28, to: 34, loop: true },
 
-            "player.up.left.move": { from: 35, to: 41, loop: false },
-            "player.up.right.move": { from: 42, to: 48, loop: false },
-            "player.down.left.move": { from: 49, to: 55, loop: true },
-            "player.down.right.move": { from: 56, to: 62, loop: true },
+            "hero.up.left.move": { from: 35, to: 41, loop: false },
+            "hero.up.right.move": { from: 42, to: 48, loop: false },
+            "hero.down.left.move": { from: 49, to: 55, loop: true },
+            "hero.down.right.move": { from: 56, to: 62, loop: true },
         },
     });
 
