@@ -8,7 +8,7 @@ import { formatText } from "../utils/text.js";
 import { gameState } from "../managers/stateManagers.js";
 
 let curQuestNb = 1;
-const quests = [];
+const quest = [];
 
 export function createQuestsPanel(k) {
     return k.add([
@@ -27,7 +27,7 @@ export function addQuest(k, questPanel, questName, questDetails) {
     questDetails = formatText(questDetails, locale);
 
     const offset = k.vec2(20, 20);
-    // TODO: wrap quests that exceeds the panel height
+    // TODO: wrap quest that exceeds the panel height
     const questBar = questPanel.add([
         k.rect(questPanel.width - 40, 100),
         k.pos(
@@ -64,17 +64,17 @@ export function addQuest(k, questPanel, questName, questDetails) {
     questBar.add([k.text(questName, { size: 30 }), k.pos(namePos)]);
     questBar.add([k.text(questDetails, { size: 22 }), k.pos(detailsPos)]);
     //questPanel.add([k.area({ shape: new k.Rect(questBar.pos, 3, 3) })]);
-    quests.push(questBar);
+    quest.push(questBar);
 }
 
 export function removeQuest(k, questName) {
     const locale = gameState.getLocale();
 
     questName = formatText(questName, locale);
-    for (const quest of quests) {
+    for (const quest of quest) {
         if (quest.qName === questName) {
             quest.destroy();
-            quests.splice(quests.indexOf(quest), 1);
+            quest.splice(quest.indexOf(quest), 1);
         }
     }
     updateQuests(k);
@@ -84,7 +84,7 @@ export function updateQuests(k) {
     // Needs to be called each time removeQuest is called
     const offset = k.vec2(20, 20);
     curQuestNb = 1;
-    for (const quest of quests) {
+    for (const quest of quest) {
         quest.pos.x = -quest.qParent.width * 0.5 + offset.x;
         quest.pos.y =
             -quest.qParent.height * 0.5 +

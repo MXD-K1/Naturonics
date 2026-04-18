@@ -32,4 +32,4 @@
 - [ ] Bind pause, and fullscreen keys.
 - [ ] Add gamepad mappings. (partial)
 - [ ] Add proper key mapping
-- [ ] Wrap quests that exceeds the panel height
+- [ ] Wrap quest that exceeds the panel height
