@@ -12,15 +12,28 @@ export function storageSystem() {
             serialize: (obj) => JSON.stringify(obj),
             deserialize: (string) => JSON.parse(string),
             getData: () => data,
-            setData(newData) {
-                data = newData;
+            setData(newData, modify = true) {
+                if (modify) {
+                    Object.assign(data, newData);
+                } else {
+                    data = newData;
+                }
             },
             deleteData() {
                 data = {};
             },
             getItem: (key) => data[key],
-            saveItem(key, item) {
-                data[key] = item;
+            saveItem(key, item, modify = true) {
+                if (
+                    item !== null &&
+                    typeof item === "object" &&
+                    !Array.isArray(item)
+                ) {
+                    data[key] = Object.assign(data[key], item);
+                } else {
+                    // modify = false;
+                    data[key] = item;
+                }
             },
             deleteItem(key) {
                 delete data[key];
@@ -36,7 +49,7 @@ export function storageSystem() {
             },
             saveToStorage() {
                 const stringData = this.serialize(data);
-                localStorage.setItem(saveSlot, stringData);
+                localStorage.setItem(curSaveSlot, stringData);
             },
             loadItemFromStorge(key) {
                 this.deserialize(localStorage.getItem(key));
@@ -69,7 +82,7 @@ export function storageSystem() {
                 localStorage.setItem("metaData", this.serialize(metaData));
             },
             // TODO: modify the existing functions to add to the old value
-            //  without reassigning the whole entry.
+            //  without reassigning the whole entry. (partially done)
         };
     }
 
