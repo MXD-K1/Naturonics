@@ -61,9 +61,14 @@ export function addQuest(k, questPanel, questName, questDetails) {
         // namePos.x = questBar.width - nameTextWidth - 5;
         detailsPos.x = questBar.width - detailsTextWidth + 65;
     }
-    questBar.add([k.text(questName, { size: 30 }), k.pos(namePos)]);
-    questBar.add([k.text(questDetails, { size: 22 }), k.pos(detailsPos)]);
-    //questPanel.add([k.area({ shape: new k.Rect(questBar.pos, 3, 3) })]);
+
+    questBar.add([k.text(questName, getFont("questTitle")), k.pos(namePos)]);
+
+    questBar.add([
+        k.text(questDetails, getFont("questInfo")),
+        k.pos(detailsPos),
+    ]);
+
     quests.push(questBar);
 }
 
