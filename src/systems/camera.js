@@ -1,5 +1,4 @@
 import { tileHeight, tileWidth } from "../utils/constants.js";
-import { gameState } from "../managers/stateManagers.js";
 
 export function worldCamera(k, mapData, person) {
     const camScale = 1.5;
