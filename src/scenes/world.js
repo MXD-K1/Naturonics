@@ -1,8 +1,14 @@
 import { colorizeBG, drawTiles, fetchData } from "../utils/utils.js";
 import { createHero, moveHero } from "../entities/hero.js";
 import { globalInput } from "../utils/input.js";
-import { COLORS, screenWidth, screenHeight, tileHeight, tileWidth } from "../utils/constants.js";
-import { createEnemy, moveEnemy, hasLos } from "../entities/enemy.js";
+import {
+    COLORS,
+    screenWidth,
+    screenHeight,
+    tileHeight,
+    tileWidth,
+} from "../utils/constants.js";
+import { createEnemy, controlEnemies } from "../entities/enemy.js";
 import { worldCamera } from "../systems/camera.js";
 //import { createPanel } from "../ui/components/panel.js";
 
@@ -21,14 +27,9 @@ export default async function createWorld(k) {
     k.add(createEnemy(k, k.vec2(400, 170), {}));
     moveHero(k, hero);
 
-    k.onUpdate("enemy", (enemy) => {
-        const seesPlayer = hasLos(enemy, hero);
-        if (seesPlayer) {
-            moveEnemy(k, enemy, hero);
-        }
-    });
+    controlEnemies(k, hero);
 
-    worldCamera(k, hero);
+    worldCamera(k, mapData, hero);
 
     //createPanel(k);
 }

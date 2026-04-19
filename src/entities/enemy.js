@@ -1,6 +1,7 @@
 import { createEntity } from "./entity.js";
+import { worldCamera } from "../systems/camera.js";
 
-export function createEnemy(k, pos, opts={}) {
+export function createEnemy(k, pos, opts = {}) {
     let hp = 3;
     let damage = 1;
     let resistance = 0;
@@ -12,12 +13,13 @@ export function createEnemy(k, pos, opts={}) {
     if (opts.range) range = opts.range;
 
     return [
-        ...createEntity(k, pos, { speed: 50}),
-        k.sprite("player", { anim: "player.down.idle" }),
+        ...createEntity(k, pos, { speed: 60 }),
+        k.sprite("hero", { anim: "hero.down.idle" }),
         k.health(hp),
         k.sentry({}, { lineOfSight: true }),
         "enemy",
         {
+            playerSeen: false,
             damage: damage,
             resistance: resistance,
             range: range, // when will the enemy notice the player
@@ -42,11 +44,22 @@ export function equipAttack(enemy, attack) {
     enemy.attacks[attack.name] = attack;
 }
 
-
 export function moveEnemy(k, enemy, hero) {
     const dir = hero.pos.sub(enemy.pos).unit();
     enemy.move(dir.x * enemy.speed, dir.y * enemy.speed);
 }
 
+export function controlEnemies(k, hero) {
+    k.onUpdate("enemy", (enemy) => {
+        const seesPlayer = hasLos(enemy, hero);
+        if (seesPlayer) {
+            enemy.playerSeen = true;
+        }
+
+        if (enemy.playerSeen) {
+            moveEnemy(k, enemy, hero);
+        }
+    });
+}
 
 // TODO: implement state machine
