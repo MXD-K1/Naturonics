@@ -5,10 +5,10 @@ import { playAnimIfNotPlaying } from "../utils/utils.js";
 export function createHero(k, pos) {
     return [
         ...createEntity(k, pos),
-        k.sprite("player", { anim: "player.down.move" }),
-        k.area({ shape: new k.Rect(k.vec2(-8, -8), 16, 16) }),
+        k.sprite("hero", { anim: "hero.down.move" }),
+        k.area({ shape: new k.Rect(k.vec2(8, 40), 16, 16) }),
         // k.health(),
-        "player",
+        "hero",
         {
             damage: 2,
             direction: "down",
@@ -17,12 +17,6 @@ export function createHero(k, pos) {
 }
 
 export function moveHero(k, hero) {
-    const margin = 32;
-    const minX = margin;
-    const minY = margin;
-    const maxX = k.width() - margin - hero.width;
-    const maxY = k.height() - margin - hero.height;
-
     hero.onUpdate(() => {
         if (gameState.getFreezePlayer()) return;
 
@@ -66,12 +60,9 @@ export function moveHero(k, hero) {
             moveVec.y = (moveVec.y / len) * hero.speed;
             hero.move(moveVec.x * k.dt(), moveVec.y * k.dt());
 
-            playAnimIfNotPlaying(hero, `player.${hero.direction}.move`);
+            playAnimIfNotPlaying(hero, `hero.${hero.direction}.move`);
         } else {
-            playAnimIfNotPlaying(hero, `player.${hero.direction}.idle`);
+            playAnimIfNotPlaying(hero, `hero.${hero.direction}.idle`);
         }
-
-        hero.pos.x = Math.max(minX, Math.min(hero.pos.x, maxX));
-        hero.pos.y = Math.max(minY, Math.min(hero.pos.y, maxY));
     });
 }

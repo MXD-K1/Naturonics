@@ -18,24 +18,16 @@ export async function fetchData(mapPath) {
 } // also works for map data
 
 export function drawTiles(k, map, layer, tileHeight, tileWidth) {
-    // This function will be used in drawing maps
-    let nbOfDrawnTiles = 0;
-    const tilePos = k.vec2();
-    for (const tile of layer.data) {
-        if (nbOfDrawnTiles % layer.width === 0) {
-            tilePos.x = 0;
-            tilePos.y += tileHeight;
-        } else {
-            tilePos.x += tileWidth;
-        }
-
-        nbOfDrawnTiles++;
+    for (let i = 0; i < layer.data.length; i++) {
+        const tile = layer.data[i];
         if (tile === 0) continue;
 
-        // Rendering happens here.
+        const x = (i % layer.width) * tileWidth;
+        const y = Math.floor(i / layer.width) * tileHeight;
+
         map.add([
-            k.sprite("assets", { frame: tile - 1 }), // kaplay starts from 0 while tiled start from 1
-            k.pos(tilePos),
+            k.sprite("assets", { frame: tile - 1 }),
+            k.pos(x, y),
             k.offscreen(),
         ]);
     }
