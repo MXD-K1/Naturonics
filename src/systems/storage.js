@@ -61,10 +61,10 @@ export function storageSystem() {
                 localStorage.removeItem(this.serialize(key));
             },
             clearSlot(saveSlot) {
-                localStorage.removeItem(saveSlot);
+                localStorage.removeItem(curSaveSlot);
             },
             clearAllSlots() {
-                for (const slot of saveSlots) {
+                for (const slot of curSaveSlot) {
                     this.clearSlot(slot);
                 }
             },
