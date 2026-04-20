@@ -35,11 +35,12 @@ function drawTiles(k, layer, tileHeight, tileWidth) {
     }
 }
 
-function generateColliderBoxComponents(k, width, height, pos, tag) {
+function generateColliderBoxComponents(k, width, height, pos, rotation, tag) {
     return [
         k.area({ shape: new k.Rect(k.vec2(0, 0), width, height) }), // vec2(0) same as vec2(0, 0)
         k.pos(pos),
         k.body({ isStatic: true }),
+        k.rotate(rotation),
         //k.offscreen(),
         tag,
     ];
@@ -53,6 +54,7 @@ function drawBoundaries(k, mapColliders, layer) {
                 object.width,
                 object.height,
                 k.vec2(object.x, object.y + 16),
+                object.rotation,
                 object.name,
             ),
         );
@@ -61,17 +63,17 @@ function drawBoundaries(k, mapColliders, layer) {
 
 export function drawMap(k, map) {
     const mapColliders = k.add([k.pos(0, 0)]);
-    // if (map.layers["Collisions"]) {
-    //     drawBoundaries(k, mapColliders, map.layers["Collisions"]);
-    // }
+
+    for (const layer of map.layers) {
+        if (layer.name === "Collisions") {
+            drawBoundaries(k, mapColliders, layer);
+        }
+    }
 
     k.onDraw(() => {
         for (const layer of map.layers) {
-            if (layer.name === "Collisions") {
-                continue;
-            }
+            if (layer.name === "Collisions") continue;
             drawTiles(k, layer, tileHeight, tileWidth);
         }
     });
-    return mapColliders;
 }

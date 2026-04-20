@@ -15,6 +15,8 @@ export const screenHeight = 720;
 export const tileHeight = 32;
 export const tileWidth = 32;
 
+export const camScale = 1.5;
+
 export const speedFactor = 35;
 
 export const LOCALES = Object.freeze({

@@ -12,7 +12,9 @@ export default async function createWorld(k) {
 
     drawMap(k, map);
 
-    const hero = k.add(createHero(k, k.vec2(320, 170)));
+    const hero = k.add(createHero(k, k.vec2(320, 470)));
     moveHero(k, hero);
     worldCamera(k, map, hero);
+
+    k.play("bg_music");
 }
