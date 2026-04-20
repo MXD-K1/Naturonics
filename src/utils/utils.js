@@ -35,10 +35,43 @@ function drawTiles(k, layer, tileHeight, tileWidth) {
     }
 }
 
+function generateColliderBoxComponents(k, width, height, pos, tag) {
+    return [
+        k.area({ shape: new k.Rect(k.vec2(0, 0), width, height) }), // vec2(0) same as vec2(0, 0)
+        k.pos(pos),
+        k.body({ isStatic: true }),
+        //k.offscreen(),
+        tag,
+    ];
+}
+
+function drawBoundaries(k, mapColliders, layer) {
+    for (const object of layer.objects) {
+        mapColliders.add(
+            generateColliderBoxComponents(
+                k,
+                object.width,
+                object.height,
+                k.vec2(object.x, object.y + 16),
+                object.name,
+            ),
+        );
+    }
+}
+
 export function drawMap(k, map) {
+    const mapColliders = k.add([k.pos(0, 0)]);
+    // if (map.layers["Collisions"]) {
+    //     drawBoundaries(k, mapColliders, map.layers["Collisions"]);
+    // }
+
     k.onDraw(() => {
         for (const layer of map.layers) {
+            if (layer.name === "Collisions") {
+                continue;
+            }
             drawTiles(k, layer, tileHeight, tileWidth);
         }
     });
+    return mapColliders;
 }
