@@ -20,7 +20,7 @@ export default async function createWorld(k) {
     drawMap(k, map);
 
     const hero = k.add(createHero(k, k.vec2(320, 470)));
-    k.add(createEnemy(k, k.vec2(400, 170), {}));
+    k.add(createEnemy(k, k.vec2(320, 520), {}));
     moveHero(k, hero);
 
     controlEnemies(k, hero);
