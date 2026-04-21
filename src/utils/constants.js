@@ -1,3 +1,5 @@
+import pkg_metadata from "../../package.json";
+
 import createWorld from "../scenes/world.js";
 import loadScene from "../scenes/load.js";
 import titleScene from "../scenes/title.js";
@@ -11,7 +13,7 @@ export const SCENES = {
 };
 
 export const GAME_NAME = "Naturonics";
-export const version = "0.1.18";
+export const version = pkg_metadata.version;
 
 export const screenWidth = 1280;
 export const screenHeight = 720;
