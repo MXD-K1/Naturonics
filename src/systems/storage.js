@@ -1,3 +1,5 @@
+const STORAGE_KEY = "GameData";
+
 export function storageSystem() {
     let instance = null;
 
@@ -6,7 +8,7 @@ export function storageSystem() {
         let curSaveSlot = "save_1"; // up to three saves
         let version = "0.1.0"; // in case the save api changed in the future
         let data = {};
-        let metaData = {};
+        let metaData = data["metadata"];
 
         return {
             serialize: (obj) => JSON.stringify(obj),
@@ -39,7 +41,7 @@ export function storageSystem() {
                 delete data[key];
             },
             loadFromStorage() {
-                let saveData = localStorage.getItem(saveSlot);
+                let saveData = localStorage.getItem(STORAGE_KEY);
                 if (!saveData) return;
 
                 saveData = this.deserialize(saveData);
@@ -49,7 +51,7 @@ export function storageSystem() {
             },
             saveToStorage() {
                 const stringData = this.serialize(data);
-                localStorage.setItem(curSaveSlot, stringData);
+                localStorage.setItem(STORAGE_KEY, stringData);
             },
             loadItemFromStorge(key) {
                 this.deserialize(localStorage.getItem(key));
@@ -68,14 +70,14 @@ export function storageSystem() {
                     this.clearSlot(slot);
                 }
             },
-            clearLocalStorage() {
+            clearLocalStorageData() {
                 localStorage.clear();
             },
             modifyMetaData(newMetaData) {
                 Object.assign(metaData, newMetaData);
             },
             loadMetaData() {
-                localStorage.getItem("metaData");
+                metaData = localStorage.getItem(STORAGE_KEY)["metadata"];
             },
             saveMetaData(metaData) {
                 metaData["version"] = version;
@@ -96,3 +98,6 @@ export function storageSystem() {
         },
     };
 }
+
+// Needs so much fixes, don't use for now
+// save directly using key: game_old
