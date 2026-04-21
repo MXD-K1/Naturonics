@@ -64,7 +64,7 @@ export function storageSystem() {
                 localStorage.removeItem(curSaveSlot);
             },
             clearAllSlots() {
-                for (const slot of curSaveSlot) {
+                for (const slot of saveSlots) {
                     this.clearSlot(slot);
                 }
             },
