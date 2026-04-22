@@ -81,6 +81,7 @@ export async function run(k) {
     initWavedash(k);
 
     gameState.setPlayer(getPlayer());
+    gameState.setLocale(gameState.getPlayer()["settings"]["language"]);
 
     for (const scene in SCENES) {
         k.scene(scene, () => SCENES[scene](k));

@@ -1,3 +1,5 @@
+import { isObject } from "../utils/utils.js";
+
 const STORAGE_KEY = "old_game";
 
 export function createNewPlayer(nickname) {
@@ -26,10 +28,27 @@ export function getPlayer() {
     if (!player) {
         player = createNewPlayer("player");
         savePlayer(player);
+        return player;
     }
-    return player;
+    return parseObject(player);
 }
 
 export function savePlayer(player) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(player));
+    console.log(stringifyObject(player));
+    localStorage.setItem(STORAGE_KEY, stringifyObject(player));
+}
+
+function stringifyObject(object) {
+    const newObject = {};
+    for (let [key, value] of Object.entries(object)) {
+        if (isObject(value)) {
+            stringifyObject(value);
+        }
+        newObject[JSON.stringify(key)] = JSON.stringify(value);
+    }
+    return newObject;
+}
+
+function parseObject(object) {
+    return JSON.parse(object);
 }

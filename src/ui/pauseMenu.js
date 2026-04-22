@@ -40,7 +40,7 @@ export function createPauseMenu(k) {
         k,
         getText("menu_settings"),
         () => {
-            // save
+            savePlayerData();
             gameState.goToScene(k, "option");
         },
         { pos: k.vec2(0, 0) },
@@ -51,7 +51,8 @@ export function createPauseMenu(k) {
         k,
         getText("menu_exit_menu"),
         () => {
-            // save
+            savePlayerData();
+            gameState.setPlayer();
             gameState.goToScene(k, "title");
         },
         { pos: k.vec2(0, 30) },
@@ -62,7 +63,7 @@ export function createPauseMenu(k) {
         k,
         getText("menu_quit"),
         () => {
-            // save
+            savePlayerData();
             k.quit(); // not sure if this is a good
             // way to do it in a browser game
         },
@@ -78,4 +79,12 @@ export function togglePauseMenuState(k) {
     } else {
         createPauseMenu(k);
     }
+}
+
+function savePlayerData() {
+    // save
+    const player = gameState.getPlayer();
+    console.log(player);
+    player["settings"]["language"] = gameState.getLocale();
+    player["saveSlot"]["pos"] = player.pos;
 }
