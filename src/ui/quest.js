@@ -58,7 +58,6 @@ export function addQuest(k, questPanel, questName, questDetails) {
         // TODO: fix positioning
         namePos.x +=
             questBar.width - questBar.worldPos().x - nameTextWidth + 60;
-        // namePos.x = questBar.width - nameTextWidth - 5;
         detailsPos.x = questBar.width - detailsTextWidth + 65;
     }
     questBar.add([k.text(questName, { size: 30 }), k.pos(namePos)]);

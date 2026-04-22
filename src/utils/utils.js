@@ -1,11 +1,9 @@
 import {
-    screenWidth,
     screenHeight,
-    tileWidth,
+    screenWidth,
     tileHeight,
+    tileWidth,
 } from "./constants.js";
-import { createHero, moveHero } from "../entities/hero.js";
-import { worldCamera } from "../systems/camera.js";
 
 export function colorizeBG(k, r, g, b) {
     k.add([k.rect(screenWidth, screenHeight), k.color(r, g, b), k.fixed()]);

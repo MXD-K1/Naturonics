@@ -52,7 +52,7 @@ async function loadAssets(k) {
     });
 
     // Sounds (SFX)
-    k.loadMusic("bg_music", "assets/sound/ambience_naturonics.mp3");
+    k.loadMusic("bg_music", "assets/sound/ambience.mp3");
     // Fonts
     k.loadFont("lettern", "./assets/fonts/MessingLettern.ttf");
     k.loadFont("orbitron", "./assets/fonts/Orbitron.ttf");

@@ -1,6 +1,6 @@
 // This file is used to update the game version in wavedash.toml automatically
 
-import fs from "fs";
+import fs from "node:fs";
 
 const pkg = JSON.parse(fs.readFileSync("package.json", "utf-8"));
 

@@ -1,14 +1,8 @@
 import { colorizeBG, drawMap, fetchData } from "../utils/utils.js";
 import { createHero, moveHero } from "../entities/hero.js";
 import { globalInput } from "../utils/input.js";
-import {
-    COLORS,
-    screenWidth,
-    screenHeight,
-    tileHeight,
-    tileWidth,
-} from "../utils/constants.js";
-import { createEnemy, controlEnemies } from "../entities/enemy.js";
+import { COLORS } from "../utils/constants.js";
+import { controlEnemies, createEnemy } from "../entities/enemy.js";
 import { worldCamera } from "../systems/camera.js";
 
 export default async function createWorld(k) {

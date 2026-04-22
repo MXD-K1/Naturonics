@@ -8,7 +8,6 @@ export function createSpinner(
 ) {
     let index = 0;
     let pos = opts.pos ?? k.vec2(0, 0);
-    let clicked = false;
 
     if (opts.startFrom) {
         if (opts.aliases) {
@@ -41,11 +40,9 @@ export function createSpinner(
 
     btnLeft.onClick(() => {
         index = (index - 1 + choices.length) % choices.length;
-        clicked = true;
     });
     btnRight.onClick(() => {
         index = (index + 1) % choices.length;
-        clicked = true;
     });
 
     k.onUpdate(() => {

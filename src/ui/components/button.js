@@ -13,8 +13,7 @@ export function createButton(k, text, onPress, opts = {}, parent = null) {
     ];
 
     if (opts.center) {
-        components.push(k.pos(k.center()));
-        components.push(k.anchor("center"));
+        components.push(k.pos(k.center()), k.anchor("center"));
     }
 
     if (opts.pos) {
