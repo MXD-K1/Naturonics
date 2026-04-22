@@ -38,7 +38,6 @@ export function createSpinner(
 
     const choicePos = k.vec2(40, 0);
     const choice = container.add([k.text(choices[index]), k.pos(choicePos)]);
-    // TODO: center text
 
     btnLeft.onClick(() => {
         index = (index - 1 + choices.length) % choices.length;
@@ -51,10 +50,12 @@ export function createSpinner(
 
     k.onUpdate(() => {
         choice.text = choices[index];
+        choice.pos.x = pos.x - choice.width / 2 - 60;
     });
 
     container.onClick(() => {
-        if (opts.aliases) {
+        opts.ignoreAliases = opts.ignoreAliases ?? false;
+        if (opts.aliases && !opts.ignoreAliases) {
             onClick(opts.aliases[index]);
         } else {
             onClick(choice.text);
