@@ -6,6 +6,8 @@ import {
     initWavedash,
     updateLoadingProgress,
 } from "./wavedash.js";
+import { getPlayer } from "./systems/player.js";
+import { gameState } from "./managers/stateManagers.js";
 
 // TODO: Configure gravity once platforming or physics are added.
 
@@ -41,13 +43,19 @@ async function loadAssets(k) {
             "hero.up.right.move": { from: 42, to: 48, loop: true },
             "hero.down.left.move": { from: 49, to: 55, loop: true },
             "hero.down.right.move": { from: 56, to: 62, loop: true },
+
+            // "hero.left.attack"
+            // "hero.right.attack"
+            // "hero.up.attack"
+            // "hero.down.attack"
         },
     });
 
     // Sounds (SFX)
     k.loadMusic("bg_music", "assets/sound/ambience_naturonics.mp3");
     // Fonts
-    k.loadFont("l", "./assets/fonts/MessingLettern.ttf");
+    k.loadFont("lettern", "./assets/fonts/MessingLettern.ttf");
+    k.loadFont("orbitron", "./assets/fonts/Orbitron.ttf");
     // k.loadFont("jungle", "assets/fonts/font.png", 10, 10);
     // Dialog Data
     [
@@ -71,6 +79,8 @@ export async function run(k) {
     await loadAssets(k);
     updateLoadingProgress(1);
     initWavedash(k);
+
+    gameState.setPlayer(getPlayer());
 
     for (const scene in SCENES) {
         k.scene(scene, () => SCENES[scene](k));

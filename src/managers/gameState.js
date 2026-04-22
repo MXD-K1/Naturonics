@@ -4,8 +4,14 @@ export default function globalGameState() {
     function createInstance() {
         let locale = "EN"; // choices: "EN", "AR", "ES", "ID", "HI"
         let freezePlayer = false;
+        let prevScene = null;
+        let player = null;
 
         return {
+            setPlayer(newPlayer) {
+                player = newPlayer;
+            },
+            getPlayer: () => player,
             setFreezePlayer(value) {
                 freezePlayer = value;
             },
@@ -14,6 +20,15 @@ export default function globalGameState() {
                 locale = value;
             },
             getLocale: () => locale,
+            goToScene: (k, scene) => {
+                prevScene = k.getSceneName();
+                k.go(scene);
+            },
+            backToPrevScene(k) {
+                if (prevScene) {
+                    k.go(prevScene);
+                }
+            },
         };
     }
 
