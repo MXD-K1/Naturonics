@@ -1,5 +1,4 @@
 import { createEntity } from "./entity.js";
-import { worldCamera } from "../systems/camera.js";
 import { hitAttack } from "./attacks/hitAttack.js";
 import { ATTACK_STATES } from "../utils/constants.js";
 import { playAnimIfNotPlaying } from "../utils/utils.js";
@@ -26,12 +25,15 @@ export function createEnemy(k, pos, opts = {}) {
             playerSeen: false,
             damage: damage,
             resistance: resistance,
-            range: range, 
+            range: range,
             attackRange: 50,
             direction: "down",
-            
+
             attacks: {
-                basicAttack: hitAttack("basicAttack", { damage: 0.5, cooldown: 1 }),
+                basicAttack: hitAttack("basicAttack", {
+                    damage: 0.5,
+                    cooldown: 1,
+                }),
             },
             currentAttack: "basicAttack",
             lastAttackTime: 0,
@@ -46,7 +48,6 @@ export function takeDamage(enemy, damage) {
 }
 
 export function hasLos(enemy, player) {
-
     return enemy.pos.dist(player.pos) <= enemy.range;
 }
 
@@ -82,18 +83,14 @@ export function isInAttackRange(enemy, hero) {
 export function executeAttack(enemy, attack, hero, k) {
     if (attack.state !== ATTACK_STATES.READY) return false;
 
-
     const totalDamage = enemy.damage + attack.damage;
-
 
     if (hero.hurt) {
         hero.hurt(totalDamage);
     }
 
-
     attack.state = ATTACK_STATES.COOLDOWN;
     attack.startTime = k.currentTime;
-
 
     if (attack.cooldownTime) {
         k.wait(attack.cooldownTime, () => {
@@ -122,11 +119,9 @@ export function controlEnemies(k, hero) {
                     executeAttack(enemy, attack, hero, k);
                 }
             } else {
-
                 moveEnemy(k, enemy, hero);
             }
-        }
-        else{
+        } else {
             const anim = `hero.${enemy.direction}.idle`;
             playAnimIfNotPlaying(enemy, anim);
         }
