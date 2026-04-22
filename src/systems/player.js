@@ -39,16 +39,23 @@ export function savePlayer(player) {
 }
 
 function stringifyObject(object) {
-    const newObject = {};
-    for (let [key, value] of Object.entries(object)) {
-        if (isObject(value)) {
-            stringifyObject(value);
-        }
-        newObject[JSON.stringify(key)] = JSON.stringify(value);
-    }
-    return newObject;
+    // const newObject = {};
+    // for (let [key, value] of Object.entries(object)) {
+    //     if (isObject(value)) {
+    //         stringifyObject(value);
+    //     }
+    //     newObject[JSON.stringify(key)] = JSON.stringify(value);
+    // }
+    // return JSON.stringify(newObject);
+    return JSON.stringify(object);
 }
 
 function parseObject(object) {
-    return JSON.parse(object);
+    const newObject = JSON.parse(object);
+    // for (let [key, value] of Object.entries(newObject)) {
+    //     if (isObject(value)) {
+    //         newObject[key] = parseObject(value);
+    //     }
+    // }
+    return newObject;
 }

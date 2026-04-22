@@ -3,6 +3,7 @@ import { createLabel } from "./components/label.js";
 import { getFont } from "../utils/font.js";
 import { createButton } from "./components/button.js";
 import { gameState, getText } from "../managers/stateManagers.js";
+import { savePlayer } from "../systems/player.js";
 
 let pauseMenu = null;
 
@@ -86,5 +87,8 @@ function savePlayerData() {
     const player = gameState.getPlayer();
     console.log(player);
     player["settings"]["language"] = gameState.getLocale();
+    gameState.setLocale(player["settings"]["language"]);
+    console.log(player["settings"]["language"]);
     player["saveSlot"]["pos"] = player.pos;
+    savePlayer(player);
 }
