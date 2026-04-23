@@ -5,6 +5,7 @@ import { createSpinner } from "../ui/components/spinner.js";
 import { COLORS } from "../utils/constants.js";
 import { createLabel } from "../ui/components/label.js";
 import { getFont } from "../utils/font.js";
+import { savePlayerData } from "../ui/pauseMenu.js";
 
 export default function optionsScene(k) {
     colorizeBG(k, ...COLORS.LIGHT_BLUE);
@@ -18,7 +19,10 @@ export default function optionsScene(k) {
     const btnBack = createButton(
         k,
         getText("menu_back"),
-        () => gameState.backToPrevScene(k),
+        () => {
+            savePlayerData();
+            gameState.backToPrevScene(k);
+        },
         {
             pos: k.vec2(k.width() / 2, k.height() - 100),
         },
@@ -46,7 +50,12 @@ export default function optionsScene(k) {
     const localeSpinner = createSpinner(
         k,
         getText("language"),
-        ["English", "Spanish", "Indonesian", "Hindi"],
+        [
+            "English (EN)",
+            "Español (ES)",
+            "Bahasa Indonesia (ID)",
+            "हिन्दी (HI)",
+        ],
         (locale) => {
             gameState.setLocale(locale);
             settings.text = getText("menu_settings");

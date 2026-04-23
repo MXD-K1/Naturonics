@@ -88,7 +88,7 @@ export function togglePauseMenuState(k) {
 }
 
 // will be moved later
-function savePlayerData() {
+export function savePlayerData() {
     // save
     const player = gameState.getPlayer();
     if (!player.settings) {

@@ -20,20 +20,21 @@ export function createSpinner(
     const spinner = k.add([]);
     spinner.text = spinner.text ?? text;
     const label = spinner.add([k.text(text), k.pos(pos)]);
+    // TODO: [...] triggered an error about styles, so disable them
     const containerPos = k.vec2(pos);
     const mainContainer = spinner.add([k.pos(containerPos)]);
 
-    const componentsPos = k.vec2(k.width() - mainContainer.pos.x - 350, 0);
+    const componentsPos = k.vec2(k.width() - mainContainer.pos.x - 370, 0);
     const container = mainContainer.add([
         k.pos(componentsPos),
-        k.area({ shape: new k.Rect(k.vec2(0, 0), 280, 37) }),
+        k.area({ shape: new k.Rect(k.vec2(0, 0), 300, 37) }),
     ]);
 
     const btnLeft = container.add([k.text("<"), k.area(), k.pos(0, 0)]);
     const btnRight = container.add([
         k.text(">"),
         k.area(),
-        k.pos(k.vec2(260, 0)),
+        k.pos(k.vec2(280, 0)),
     ]);
 
     const choicePos = k.vec2(40, 0);
@@ -48,7 +49,7 @@ export function createSpinner(
 
     k.onUpdate(() => {
         choice.text = choices[index];
-        choice.pos.x = pos.x - choice.width / 2 - 60;
+        choice.pos.x = pos.x - choice.width / 2 - 50;
     });
 
     container.onClick(() => {

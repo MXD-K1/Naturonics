@@ -33,7 +33,6 @@ export function getPlayer() {
 }
 
 export function savePlayer(player) {
-    console.log(stringifyObject(player));
     localStorage.setItem(STORAGE_KEY, stringifyObject(player));
 }
 
