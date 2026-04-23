@@ -1,4 +1,9 @@
-import { COLORS, screenHeight, screenWidth } from "../utils/constants.js";
+import {
+    COLORS,
+    LOCALES,
+    screenHeight,
+    screenWidth,
+} from "../utils/constants.js";
 import { createLabel } from "./components/label.js";
 import { getFont } from "../utils/font.js";
 import { createButton } from "./components/button.js";
@@ -82,13 +87,17 @@ export function togglePauseMenuState(k) {
     }
 }
 
-function savePlayerData() {
+// will be moved later
+export function savePlayerData() {
     // save
     const player = gameState.getPlayer();
-    console.log(player);
-    player["settings"]["language"] = gameState.getLocale();
-    gameState.setLocale(player["settings"]["language"]);
-    console.log(player["settings"]["language"]);
-    player["saveSlot"]["pos"] = player.pos;
+    if (!player.settings) {
+        player.settings.language = LOCALES.EN;
+        player.settings.volume = 10;
+    }
+    player.settings.language = gameState.getLocale();
+    gameState.setLocale(player.settings.language);
+    player.settings.volume = gameState.getVolume();
+    player.saveSlot.pos = player.pos;
     savePlayer(player);
 }

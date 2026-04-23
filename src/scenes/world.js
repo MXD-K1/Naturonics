@@ -28,5 +28,9 @@ export default async function createWorld(k) {
         { pos: k.vec2(100, 100), centerx: true },
     );
 
-    k.play("bg_music");
+    const bg_music = k.play("bg_music", { loop: true });
+
+    k.onSceneLeave(() => {
+        bg_music.stop();
+    });
 }

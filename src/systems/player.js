@@ -12,6 +12,7 @@ export function createNewPlayer(nickname) {
         playTime: 0, // ignore that for now
 
         settings: {
+            volume: 10,
             language: "EN",
         },
 
@@ -32,7 +33,6 @@ export function getPlayer() {
 }
 
 export function savePlayer(player) {
-    console.log(stringifyObject(player));
     localStorage.setItem(STORAGE_KEY, stringifyObject(player));
 }
 
