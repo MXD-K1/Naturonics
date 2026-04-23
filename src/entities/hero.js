@@ -12,6 +12,7 @@ export function createHero(k, pos) {
         {
             damage: 2,
             direction: "down",
+            state: "idle",
         },
     ];
 }
@@ -55,14 +56,17 @@ export function moveHero(k, hero) {
 
         const len = moveVec.len();
         if (len > 0) {
+            hero.state = "move";
+        } else {
+            hero.state = "idle";
+        }
+
+        if (hero.state === "move") {
             // Normalize vector so that diagonal movement isn't faster
             moveVec.x = (moveVec.x / len) * hero.speed;
             moveVec.y = (moveVec.y / len) * hero.speed;
             hero.move(moveVec.x, moveVec.y);
-
-            playAnimIfNotPlaying(hero, `hero.${hero.direction}.move`);
-        } else {
-            playAnimIfNotPlaying(hero, `hero.${hero.direction}.idle`);
         }
+        playAnimIfNotPlaying(hero, `hero.${hero.direction}.${hero.state}`);
     });
 }

@@ -58,7 +58,6 @@ export function createPauseMenu(k) {
         getText("menu_exit_menu"),
         () => {
             savePlayerData();
-            gameState.setPlayer();
             gameState.goToScene(k, "title");
         },
         { pos: k.vec2(0, 30) },
@@ -92,6 +91,8 @@ export function savePlayerData() {
     // save
     const player = gameState.getPlayer();
     if (!player.settings) {
+        console.log(player);
+        player.settings = {};
         player.settings.language = LOCALES.EN;
         player.settings.volume = 10;
     }
@@ -100,4 +101,5 @@ export function savePlayerData() {
     player.settings.volume = gameState.getVolume();
     player.saveSlot.pos = player.pos;
     savePlayer(player);
+    gameState.setPlayer(player);
 }

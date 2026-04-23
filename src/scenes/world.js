@@ -32,5 +32,6 @@ export default async function createWorld(k) {
 
     k.onSceneLeave(() => {
         bg_music.stop();
+        hero.state = "idle";
     });
 }
