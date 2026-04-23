@@ -22,5 +22,8 @@ export default async function createWorld(k) {
     worldCamera(k, map, hero);
 
     const bg_music = k.play("bg_music", { loop: true });
-    console.log(bg_music);
+
+    k.onSceneLeave(() => {
+        bg_music.pause();
+    });
 }
