@@ -18,7 +18,8 @@ export function createSpinner(
     }
 
     const spinner = k.add([]);
-    spinner.add([k.text(text), k.pos(pos)]);
+    spinner.text = spinner.text ?? text;
+    const label = spinner.add([k.text(text), k.pos(pos)]);
     const containerPos = k.vec2(pos);
     const mainContainer = spinner.add([k.pos(containerPos)]);
 
@@ -55,8 +56,12 @@ export function createSpinner(
         if (opts.aliases && !opts.ignoreAliases) {
             onClick(opts.aliases[index]);
         } else {
-            onClick(choice.text);
+            onClick(choices[index]); // because of the delay in onUpdate
         }
+    });
+
+    k.onUpdate(() => {
+        label.text = spinner.text;
     });
 
     return spinner;

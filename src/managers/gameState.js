@@ -34,7 +34,10 @@ function createInstance() {
         },
         getLocale: () => locale,
         setVolume(newVolume) {
-            if (newVolume === 0) return;
+            if (newVolume === 0) {
+                volume = 0;
+                return;
+            }
             volume = newVolume / 10;
         },
         getVolume: () => volume * 10,
