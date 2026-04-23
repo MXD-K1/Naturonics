@@ -24,6 +24,6 @@ export default async function createWorld(k) {
     const bg_music = k.play("bg_music", { loop: true });
 
     k.onSceneLeave(() => {
-        bg_music.pause();
+        bg_music.stop();
     });
 }
