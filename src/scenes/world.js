@@ -23,6 +23,6 @@ export default async function createWorld(k) {
     worldCamera(k, map, hero);
 
     k.play("bg_music", {
-        volume: gameState.getVolumeUint() / 10,
+        volume: gameState.getVolumeUint(),
     });
 }
