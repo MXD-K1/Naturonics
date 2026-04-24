@@ -71,7 +71,6 @@ export function moveHero(k, hero) {
             moveVec.y = (moveVec.y / len) * hero.speed;
             hero.move(moveVec.x, moveVec.y);
         }
-        console.log(hero.state);
         playAnimIfNotPlaying(hero, `hero.${hero.direction}.${hero.state}`);
     });
 }

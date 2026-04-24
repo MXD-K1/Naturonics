@@ -36,6 +36,7 @@ export const COLORS = Object.freeze({
     WHITE: [255, 255, 255],
     BLACK: [0, 0, 0],
     BLUE: [41, 41, 255],
+    RED: [230, 0, 0],
     BROWN: [165, 42, 42],
     LIGHT_BLUE: [121, 192, 234],
 });
