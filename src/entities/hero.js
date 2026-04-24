@@ -13,6 +13,7 @@ export function createHero(k, pos) {
             damage: 2,
             direction: "down",
             state: "idle",
+            maxHp: 10,
         },
     ];
 }

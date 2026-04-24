@@ -23,7 +23,7 @@ export default async function createWorld(k) {
     controlEnemies(k, hero);
 
     worldCamera(k, map, hero);
-    createHPBar(k, hero.hp(), 10);
+    createHPBar(k, hero);
     checkHeroHp(k, hero);
 
     const bg_music = k.play("bg_music", { loop: true });

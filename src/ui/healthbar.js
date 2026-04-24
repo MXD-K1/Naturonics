@@ -1,7 +1,10 @@
 // health or hp for short
 import { COLORS } from "../utils/constants.js";
 
-export function createHPBar(k, hp, maxHp) {
+export function createHPBar(k, hero) {
+    let hp = hero.hp();
+    let maxHp = hero.maxHp;
+
     const width = 410;
     const height = 20;
     const margins = 10; // 5 + 5
@@ -22,6 +25,7 @@ export function createHPBar(k, hp, maxHp) {
     ]);
 
     k.onUpdate(() => {
+        hp = hero.hp();
         filledBarWidth = ((width - margins) / maxHp) * hp;
         hpBar.width = filledBarWidth;
     });
