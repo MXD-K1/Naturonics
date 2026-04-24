@@ -4,7 +4,6 @@ import { globalInput } from "../utils/input.js";
 import { COLORS } from "../utils/constants.js";
 import { controlEnemies, createEnemy } from "../entities/enemy.js";
 import { worldCamera } from "../systems/camera.js";
-import { gameState } from "../managers/stateManagers.js";
 import { createHPBar } from "../ui/healthbar.js";
 
 export default async function createWorld(k) {
@@ -17,7 +16,6 @@ export default async function createWorld(k) {
 
     const hero = k.add(createHero(k, k.vec2(320, 470)));
     k.add(createEnemy(k, k.vec2(320, 520), {}));
-    gameState.setFreezePlayer(false);
     moveHero(k, hero);
 
     controlEnemies(k, hero);
