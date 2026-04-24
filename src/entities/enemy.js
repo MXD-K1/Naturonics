@@ -3,6 +3,25 @@ import { hitAttack } from "./attacks/hitAttack.js";
 import { ATTACK_STATES } from "../utils/constants.js";
 import { playAnimIfNotPlaying } from "../utils/utils.js";
 
+const ENEMY_ATTACK_FX_OFFSET = 24;
+const DIR_ANGLES = {
+    "right": 0, "down.right": 45, "down": 90, "down.left": 135,
+    "left": 180, "up.left": 225, "up": 270, "up.right": 315
+};
+
+export function spawnAttackEffect(k, enemy) {
+    const angle = DIR_ANGLES[enemy.direction] ?? 90; 
+
+    k.add([
+        k.sprite("pipe_attack", { anim: "slash" }),
+        k.pos(enemy.pos.add(k.Vec2.fromAngle(angle).scale(ENEMY_ATTACK_FX_OFFSET))),
+        k.anchor("center"),
+        k.rotate(angle),
+        k.opacity(),
+        k.lifespan(0.4) 
+    ]);
+}
+
 export function createEnemy(k, pos, opts = {}) {
     let hp = 3;
     let damage = 1;
@@ -84,6 +103,7 @@ export function executeAttack(enemy, attack, hero, k) {
     if (attack.state !== ATTACK_STATES.READY) return false;
 
     const totalDamage = enemy.damage + attack.damage;
+    spawnAttackEffect(k, enemy);
 
     if (hero.hurt) {
         hero.hurt(totalDamage);
