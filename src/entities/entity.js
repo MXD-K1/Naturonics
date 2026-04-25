@@ -4,6 +4,7 @@ export function createEntity(k, name, pos, opts = {}) {
     return [
         k.pos(pos),
         k.area({ shape: opts.rect }),
+        k.z(0), // to implement y-sorting
         k.body(),
         k.opacity(),
         {
