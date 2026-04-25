@@ -3,8 +3,6 @@ import { hitAttack } from "./attacks/hitAttack.js";
 import { ATTACK_STATES } from "../utils/constants.js";
 import { playAnimIfNotPlaying, spawnAttackEffect } from "../utils/utils.js";
 
-
-
 export function createEnemy(k, pos, opts = {}) {
     let hp = 3;
     let damage = 1;
