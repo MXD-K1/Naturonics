@@ -4,11 +4,18 @@ import {
     tileHeight,
     tileWidth,
 } from "./constants.js";
+import { gameState } from "../managers/stateManagers.js";
 
 const ENEMY_ATTACK_FX_OFFSET = 24;
 const DIR_ANGLES = {
-    "right": 0, "down.right": 45, "down": 90, "down.left": 135,
-    "left": 180, "up.left": 225, "up": 270, "up.right": 315
+    right: 0,
+    "down.right": 45,
+    down: 90,
+    "down.left": 135,
+    left: 180,
+    "up.left": 225,
+    up: 270,
+    "up.right": 315,
 };
 
 export function colorizeBG(k, r, g, b) {
@@ -45,7 +52,6 @@ function generateColliderBoxComponents(k, width, height, pos, rotation, tag) {
         k.pos(pos),
         k.body({ isStatic: true }),
         k.rotate(rotation),
-        //k.offscreen(),
         tag,
     ];
 }
@@ -87,6 +93,7 @@ export function isObject(obj) {
 }
 
 export function getClosestEntityInRange(k, origin, tag, range) {
+    // works for enemies and interactable objects as well
     let target = null;
     let closestDistance = Number.POSITIVE_INFINITY;
 
@@ -102,17 +109,29 @@ export function getClosestEntityInRange(k, origin, tag, range) {
     return target;
 }
 
+export function interactWithObjs(k, origin, execute) {
+    // args is an obj, execute must have one arg at least
+    const target = getClosestEntityInRange(k, origin, "interactable", 50);
+    if (target === null) return;
 
+    gameState.setFreezePlayer(true);
+    execute(target);
+    gameState.setFreezePlayer(false);
+}
 
 export function spawnAttackEffect(k, person) {
-    const angle = DIR_ANGLES[person.direction] ?? 90; 
+    const angle = DIR_ANGLES[person.direction] ?? 90;
 
     k.add([
         k.sprite("pipe_attack", { anim: "slash" }),
-        k.pos(person.pos.add(k.Vec2.fromAngle(angle).scale(ENEMY_ATTACK_FX_OFFSET))),
+        k.pos(
+            person.pos.add(
+                k.Vec2.fromAngle(angle).scale(ENEMY_ATTACK_FX_OFFSET),
+            ),
+        ),
         k.anchor("center"),
         k.rotate(angle),
         k.opacity(),
-        k.lifespan(0.4) 
+        k.lifespan(0.4),
     ]);
 }

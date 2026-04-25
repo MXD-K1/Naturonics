@@ -6,8 +6,11 @@ import {
     spawnAttackEffect,
 } from "../utils/utils.js";
 
-
-import { HERO_ATTACK_RANGE, HERO_ATTACK_DAMAGE, HERO_ATTACK_COOLDOWN} from "../utils/constants.js";
+import {
+    HERO_ATTACK_COOLDOWN,
+    HERO_ATTACK_DAMAGE,
+    HERO_ATTACK_RANGE,
+} from "../utils/constants.js";
 
 export function createHero(k, pos) {
     return [
@@ -21,6 +24,8 @@ export function createHero(k, pos) {
             direction: "down",
             state: "idle",
             maxHp: 10,
+            entityName: "hero",
+
             attackRange: HERO_ATTACK_RANGE,
             attackDamage: HERO_ATTACK_DAMAGE,
             attackCooldown: HERO_ATTACK_COOLDOWN,
@@ -40,7 +45,7 @@ export function attackHero(k, hero) {
     spawnAttackEffect(k, hero);
     if (target.hurt) target.hurt(hero.attackDamage);
 
-    hero.lastAttackTime = k.time(); 
+    hero.lastAttackTime = k.time();
     return true;
 }
 

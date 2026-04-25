@@ -28,6 +28,7 @@ export function createEnemy(k, pos, opts = {}) {
             range: range,
             attackRange: 50,
             direction: "down",
+            entityName: "enemy",
 
             attacks: {
                 basicAttack: hitAttack("basicAttack", {
@@ -106,8 +107,7 @@ export function executeAttack(enemy, attack, hero, k) {
 
 export function controlEnemies(k, hero) {
     k.onUpdate("enemy", (enemy) => {
-        const seesPlayer = hasLos(enemy, hero);
-        enemy.playerSeen = seesPlayer;
+        enemy.playerSeen = hasLos(enemy, hero);
 
         if (enemy.playerSeen) {
             const inAttackRange = isInAttackRange(enemy, hero);
