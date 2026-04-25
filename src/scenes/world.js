@@ -1,15 +1,5 @@
-import {
-    colorizeBG,
-    drawMap,
-    fetchData,
-    interactWithObjs,
-} from "../utils/utils.js";
-import {
-    attackHero,
-    checkHeroHp,
-    createHero,
-    moveHero,
-} from "../entities/hero.js";
+import { colorizeBG, drawMap, fetchData, interactWithObjs } from "../utils/utils.js";
+import { attackHero, checkHeroHp, createHero, moveHero } from "../entities/hero.js";
 import { globalInput } from "../utils/input.js";
 import { COLORS } from "../utils/constants.js";
 import { controlEnemies } from "../entities/enemy.js";
@@ -23,7 +13,7 @@ export default async function createWorld(k) {
     colorizeBG(k, ...COLORS.BLACK);
     globalInput(k);
 
-    const map = await fetchData("assets/maps/map.json");
+    const map = await fetchData("assets/maps/maze.json");
     const tutorialData = await fetchData("data/tutorial.json");
     const tutorialByLocale = tutorialData[gameState.getLocale()] ?? tutorialData.EN ?? {};
     let hasShownAttackTutorial = {attack: false};
