@@ -6,6 +6,8 @@ import {
     tileWidth,
 } from "./constants.js";
 import { gameState } from "../managers/stateManagers.js";
+import { createHero } from "../entities/hero.js";
+import { createAcornRobot } from "../entities/enemies/AcornRobot.js";
 
 const ENEMY_ATTACK_FX_OFFSET = 10;
 const DIR_ANGLES = {
@@ -32,7 +34,7 @@ export async function fetchData(mapPath) {
 } // also works for map data
 
 function drawVisibleTiles(k, map, layer) {
-    const cam = k.camPos();
+    const cam = k.getCamPos();
     const viewWidth = k.width() / camScale;
     const viewHeight = k.height() / camScale;
 
@@ -59,7 +61,7 @@ function drawVisibleTiles(k, map, layer) {
             const index = row * layer.width + col;
             const tile = layer.data[index];
 
-            if (!tile) continue;
+            if (tile === 0) continue;
 
             k.drawSprite({
                 sprite: "assets",
@@ -102,6 +104,21 @@ export function drawMap(k, map) {
     for (const layer of map.layers) {
         if (layer.name === "Collisions") {
             drawBoundaries(k, mapColliders, layer);
+            continue;
+        }
+
+        if (layer.name === "SpawnPoints") {
+            for (const object of layer.objects) {
+                if (object.name === "hero") {
+                    k.add(createHero(k, k.vec2(object.x, object.y)));
+                    continue;
+                }
+
+                if (object.name === "AcronRobot") {
+                    k.add(createAcornRobot(k, k.vec2(object.x, object.y)));
+                    continue;
+                }
+            }
             continue;
         }
 

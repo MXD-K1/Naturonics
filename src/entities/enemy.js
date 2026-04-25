@@ -66,6 +66,8 @@ export function moveEnemy(k, enemy, hero) {
     const dir = hero.pos.sub(enemy.pos).unit();
     enemy.move(dir.x * enemy.speed, dir.y * enemy.speed);
 
+    enemy.z = enemy.pos.y - 56;
+
     let xDir = "";
     let yDir = "";
 
@@ -129,7 +131,7 @@ export function executeAttack(k, enemy, attack, hero, effect = false) {
 }
 
 export function controlEnemies(k, hero, opts = {}) {
-    const tutOnAttack = opts.tutOnAttack
+    const tutOnAttack = opts.tutOnAttack;
 
     k.onUpdate("enemy", (enemy) => {
         if (enemy.hp && enemy.hp() <= 0) {
@@ -149,11 +151,10 @@ export function controlEnemies(k, hero, opts = {}) {
                 const anim = `${enemy.direction}.${enemy.state}`;
                 playAnimIfNotPlaying(enemy, anim);
                 const attack = enemy.attacks[enemy.currentAttack];
-                
+
                 if (attack) {
                     executeAttack(k, enemy, attack, hero);
                     tutOnAttack(enemy, attack);
-                    
                 }
             } else {
                 moveEnemy(k, enemy, hero);

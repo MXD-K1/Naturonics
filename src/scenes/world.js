@@ -4,18 +4,12 @@ import {
     fetchData,
     interactWithObjs,
 } from "../utils/utils.js";
-import {
-    attackHero,
-    checkHeroHp,
-    createHero,
-    moveHero,
-} from "../entities/hero.js";
+import { attackHero, checkHeroHp, moveHero } from "../entities/hero.js";
 import { globalInput } from "../utils/input.js";
 import { COLORS } from "../utils/constants.js";
 import { controlEnemies } from "../entities/enemy.js";
 import { worldCamera } from "../systems/camera.js";
 import { createHPBar } from "../ui/healthbar.js";
-import { createAcornRobot } from "../entities/enemies/AcornRobot.js";
 import { createNotificationBar } from "../ui/notification.js";
 import { gameState } from "../managers/stateManagers.js";
 
@@ -31,8 +25,7 @@ export default async function createWorld(k) {
 
     drawMap(k, map);
 
-    const hero = k.add(createHero(k, k.vec2(920, 470)));
-    k.add(createAcornRobot(k, k.vec2(820, 520)));
+    const hero = k.get("hero")[0];
 
     createNotificationBar(k, tutorialByLocale.move, null, 5);
     moveHero(k, hero);
