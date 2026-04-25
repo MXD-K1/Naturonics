@@ -36,6 +36,7 @@ export function createPauseMenu(k) {
         k,
         getText("menu_resume"),
         () => {
+            gameState.setFreezePlayer(false);
             togglePauseMenuState(k);
         },
         { pos: k.vec2(0, -30) },
