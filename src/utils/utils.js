@@ -1,5 +1,11 @@
-import {camScale, screenHeight, screenWidth, tileHeight, tileWidth,} from "./constants.js";
-import {gameState} from "../managers/stateManagers.js";
+import {
+    camScale,
+    screenHeight,
+    screenWidth,
+    tileHeight,
+    tileWidth,
+} from "./constants.js";
+import { gameState } from "../managers/stateManagers.js";
 
 const ENEMY_ATTACK_FX_OFFSET = 24;
 const DIR_ANGLES = {
@@ -81,7 +87,7 @@ function drawBoundaries(k, mapColliders, layer) {
                 k,
                 object.width,
                 object.height,
-                k.vec2(object.x, object.y + 16),
+                k.vec2(object.x, object.y),
                 object.rotation,
                 object.name,
             ),
