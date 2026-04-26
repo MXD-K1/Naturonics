@@ -18,7 +18,9 @@ export function createNewPlayer(nickname) {
 
         badges: ["Early Supporter"],
 
-        saveSlot: {}, // "save_1"
+        saveSlot: {
+            complete: false,
+        }, // "save_1"
     };
 }
 

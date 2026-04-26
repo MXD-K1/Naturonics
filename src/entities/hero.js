@@ -14,8 +14,6 @@ import {
     HERO_AUTO_HEAL_PER_SECOND,
 } from "../utils/constants.js";
 
-
-
 export function createHero(k, pos) {
     return [
         ...createEntity(k, "hero", pos, {
@@ -29,6 +27,8 @@ export function createHero(k, pos) {
             direction: "down",
             state: "idle",
             maxHp: 10,
+
+            initPos: pos,
 
             attackRange: HERO_ATTACK_RANGE,
             attackDamage: HERO_ATTACK_DAMAGE,
@@ -121,6 +121,7 @@ export function checkHeroHp(k, hero) {
     k.onUpdate(() => {
         if (hero.hp() <= 0) {
             hero.destroy();
+            hero.pos = hero.initPos;
             gameState.goToScene(k, "death");
             return;
         }

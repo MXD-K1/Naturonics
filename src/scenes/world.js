@@ -30,6 +30,10 @@ export default async function createWorld(k) {
     drawMap(k, map);
 
     const hero = k.get("hero")[0];
+    const pos = gameState.getPlayer()?.saveSlot?.pos;
+    if (pos) {
+        hero.pos = k.vec2(pos.x, pos.y);
+    }
 
     createNotificationBar(k, tutorialByLocale.move, null, 5);
     moveHero(k, hero);
@@ -81,11 +85,13 @@ export default async function createWorld(k) {
                 questByLocale.Quest2.info,
                 {},
             );
+            gameState.getPlayer().saveSlot.complete = true;
         }
     });
 
     k.onSceneLeave(() => {
         bg_music.stop();
         hero.state = "idle";
+        gameState.getPlayer().saveSlot.pos = hero.pos;
     });
 }

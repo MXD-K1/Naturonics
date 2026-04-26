@@ -21,6 +21,7 @@ export default function optionsScene(k) {
         getText("menu_back"),
         () => {
             savePlayerData();
+            gameState.setFreezePlayer(false);
             gameState.backToPrevScene(k);
         },
         {

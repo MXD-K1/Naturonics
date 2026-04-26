@@ -55,8 +55,8 @@ This project was created as an entry for the **GameDev.js Jam 2026**.
 | `D / →` | Move Right |
 | `S / ↓` | Move Down  |
 | `p`     | Pause      |
-| `e`     | Interact   |
 | `j`     | Attack     |
+| `e`     | Interact   |
 
 <!--| `Space` | Attack     |-->
 ---
@@ -148,9 +148,9 @@ Contributions are welcome!
 
 ## License
 
-Project: Web Game Jam 2026 Project
+Project: Web Gamejam.js 2026 Project
 
-Copyright © 2026 Web Game Jam 2026 Team
+Copyright © 2026 Web Gamejam.js 2026 Team
 
 This project is licensed under the GNU GPL version 2.
 see [License](LICENSE) for more.
