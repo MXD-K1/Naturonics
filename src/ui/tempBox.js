@@ -5,7 +5,7 @@ export function createBox(k, title, info, opts) {
     const width = (opts.width ?? 800) / scaleFactor;
     const height = (opts.height ?? 150) / scaleFactor;
     const pos = opts.pos ?? k.vec2(0, 0);
-    const duration = opts.duration ?? 3;
+    const duration = opts.duration ?? 7;
 
     let box;
     k.wait(1, () => {
@@ -39,10 +39,9 @@ export function createBox(k, title, info, opts) {
             k.color(COLORS.BLACK),
         );
 
-        opts.centerx = opts.centerx ?? false;
+        opts.centerx = opts.centerx ?? true;
         if (opts.centerx) {
             box.pos = k.vec2(220, 0);
-            // box.pos.x = k.width() / 2 - box.width / 2;
         }
     });
 

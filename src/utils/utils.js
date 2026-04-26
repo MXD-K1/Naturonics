@@ -102,6 +102,7 @@ export function drawMap(k, map) {
     const tileLayers = [];
 
     for (const layer of map.layers) {
+        if (!layer.visible) continue;
         if (layer.name === "Collisions") {
             drawBoundaries(k, mapColliders, layer);
             continue;

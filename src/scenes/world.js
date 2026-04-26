@@ -12,6 +12,7 @@ import { worldCamera } from "../systems/camera.js";
 import { createHPBar } from "../ui/healthbar.js";
 import { createNotificationBar } from "../ui/notification.js";
 import { gameState } from "../managers/stateManagers.js";
+import { createBox } from "../ui/tempBox.js";
 
 export default async function createWorld(k) {
     colorizeBG(k, ...COLORS.BLACK);
@@ -22,6 +23,9 @@ export default async function createWorld(k) {
     const tutorialByLocale =
         tutorialData[gameState.getLocale()] ?? tutorialData.EN ?? {};
     let hasShownAttackTutorial = { attack: false };
+    const quests = await fetchData("data/quests.json");
+    const questByLocale =
+        quests[gameState.getLocale()] ?? tutorialData.EN ?? {};
 
     drawMap(k, map);
 
@@ -48,6 +52,15 @@ export default async function createWorld(k) {
             k.wait(10, () => {
                 createNotificationBar(k, tutorialByLocale.Interact, null, 5);
             });
+
+            k.wait(12, () => {
+                createBox(
+                    k,
+                    questByLocale.Quest1.name,
+                    questByLocale.Quest1.info,
+                    {},
+                );
+            });
         },
     });
 
@@ -62,6 +75,10 @@ export default async function createWorld(k) {
             // The way this will work: check for obj entityName then add anything dialog, quest, etc...
         });
     });
+
+    if (!k.get("enemy")) {
+        createBox(k, questByLocale.Quest2.name, questByLocale.Quest2.info, {});
+    }
 
     k.onSceneLeave(() => {
         bg_music.stop();

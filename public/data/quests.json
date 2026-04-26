@@ -1,0 +1,46 @@
+{
+    "EN": {
+        "Quest1": {
+            "name": "Kill Enemy",
+            "info": "Press j to attack"
+        },
+
+        "Quest2": {
+            "name": "Patient Scavenger",
+            "info": "Wait for the next release!"
+        }
+    },
+    "ES": {
+        "Quest1": {
+            "name": "",
+            "info": ""
+        },
+
+        "Quest2": {
+            "name": "",
+            "info": ""
+        }
+    },
+    "ID": {
+        "Quest1": {
+            "name": "",
+            "info": ""
+        },
+
+        "Quest2": {
+            "name": "",
+            "info": ""
+        }
+    },
+    "HI": {
+        "Quest1": {
+            "name": "",
+            "info": ""
+        },
+
+        "Quest2": {
+            "name": "",
+            "info": ""
+        }
+    }
+}
